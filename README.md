@@ -81,6 +81,12 @@ See `doc/project_structure_and_responsibilities.md` for the full folder structur
    git commit -m "Merge main into feature/<your-module-branch>"
    ```
 
+## Developer Guide
+
+See `doc/developer_guide.md` for how to:
+- Create controllers, views, and routes (`?r=module/controller/action`)
+- Choose layouts for each module
+- Protect actions with role-based access control (RBAC)
 ## Running the Project Locally
 
 1. Install XAMPP (or similar) and start Apache.
