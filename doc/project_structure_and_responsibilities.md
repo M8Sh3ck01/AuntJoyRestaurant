@@ -98,12 +98,13 @@ AuntJoyRestaurant/
 
 > Replace `Member X` with actual names once your group is fixed.
 
-| Member | Name (fill in) | Main Module | Main Folders |
-|--------|----------------|-------------|--------------|
-| 1      |                | Customer    | `customer/`  |
-| 2      |                | Admin       | `admin/`     |
-| 3      |                | Sales       | `sales/`     |
-| 4      |                | Manager     | `manager/`   |
+| Member | Name (fill in) | Main Module           | Main Folders            |
+|--------|----------------|-----------------------|-------------------------|
+| 1      |                | Customer              | `customer/`             |
+| 2      |                | Admin                 | `admin/`                |
+| 3      |                | Sales                 | `sales/`                |
+| 4      |                | Manager               | `manager/`              |
+| 5      |                | Core & Infrastructure | `core/`, `models/`, `database/` |
 
 ### Member 1  Customer Module
 - **Folder focus:** `customer/`
@@ -159,6 +160,25 @@ AuntJoyRestaurant/
 - **Extra responsibilities:**
   - Implement SQL queries for monthly reports: total revenue, number of orders, best-selling items.
   - Implement export to PDF/Excel (using `/exports` folders and any libraries you choose).
+
+### Member 5  Core & Infrastructure
+- **Folder focus:** `core/`, `models/`, `database/`
+- **Routing and front controller:**
+  - Set up `index.php` and `core/components/Router.php` to map URLs like `/customer/...`, `/admin/...`, `/sales/...`, `/manager/...` to the correct controllers.
+  - Implement basic 404 handling and redirections.
+- **Base components:**
+  - Implement `core/components/Controller.php`, `Session.php`, `Validator.php`, and common helpers.
+- **Database access:**
+  - Implement `core/db/DB.php` and `DatabaseConfig.php` for PDO access.
+  - Provide a simple pattern or base `Model` class for queries.
+- **Authentication & RBAC:**
+  - Implement `core/rbac/Auth.php` and `AccessControl.php`.
+  - Provide helpers like `requireRole(['admin'])` that other members call in their controllers.
+- **Layouts and shared models:**
+  - Create and maintain layouts in `core/templates/` (main, admin, sales, manager).
+  - Implement shared models in `models/` (`User`, `Role`, `Category`, `Meal`, `Order`, `OrderItem`).
+- **Support for other modules:**
+  - Add or adjust shared functions and models when other members need them.
 
 ### Shared Responsibilities (All Members)
 
