@@ -1,0 +1,17 @@
+/vendor/
+/node_modules/
+/.idea/
+/.vscode/
+/.DS_Store
+
+# Generated exports
+/exports/pdf/
+/exports/excel/
+
+# Uploaded images (keep folder but ignore files)
+/assets/images/uploads/meals/*
+!assets/images/uploads/meals/.gitkeep
+
+# Local config overrides
+core/db/DatabaseConfig.local.php
+
