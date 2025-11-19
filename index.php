@@ -27,6 +27,15 @@ switch ($page) {
         (new AuthController())->login();
         break;
 
+    case 'register':
+        require_once __DIR__ . '/auth/views/register.php';
+        break;
+
+    case 'register_submit':
+        require_once __DIR__ . '/auth/controllers/AuthController.php';
+        (new AuthController())->register();
+        break;
+
     case 'logout':
         require_once __DIR__ . '/auth/controllers/AuthController.php';
         (new AuthController())->logout();
