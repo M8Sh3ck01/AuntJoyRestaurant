@@ -10,7 +10,7 @@ See `doc/project_structure_and_responsibilities.md` for the full folder structur
 - Member 2 – Admin module (`admin/`)
 - Member 3 – Sales module (`sales/`)
 - Member 4 – Manager module (`manager/`)
-- Member 5 – Core & Infrastructure (`core/`, `models/`, `database/`)
+- Member 5 – Core & Infrastructure (`config/`, `includes/`, `exports/`, root `index.php`)
 
 ## How to Clone and Work on Your Part
 
@@ -44,13 +44,13 @@ See `doc/project_structure_and_responsibilities.md` for the full folder structur
    git checkout -b feature/core-infra
    ```
 
-3. **Work only in your module folders**
+3. **Work only in your module/core folders**
 
-- Customer: `customer/controllers`, `customer/views`, `customer/components`
-- Admin: `admin/controllers`, `admin/views`, `admin/components`
-- Sales: `sales/controllers`, `sales/views`, `sales/components`
-- Manager: `manager/controllers`, `manager/views`, `manager/components`
-- Core & Infrastructure: `core/components`, `core/db`, `core/rbac`, `core/templates`, `models`, `database`
+- Customer: `customer/controllers`, `customer/models`, `customer/views`, `customer/components`
+- Admin: `admin/controllers`, `admin/models`, `admin/views`, `admin/components`
+- Sales: `sales/controllers`, `sales/models`, `sales/views`, `sales/components`
+- Manager: `manager/controllers`, `manager/models`, `manager/views`, `manager/components`
+- Core & Infrastructure: `config/`, `includes/`, `exports/`, and `index.php`
 
 4. **Commit and push your changes**
 
@@ -84,9 +84,10 @@ See `doc/project_structure_and_responsibilities.md` for the full folder structur
 ## Developer Guide
 
 See `doc/developer_guide.md` for how to:
-- Create controllers, views, and routes (`?r=module/controller/action`)
-- Choose layouts for each module
-- Protect actions with role-based access control (RBAC)
+- Use the `index.php?page=...&action=...` router
+- Create controllers and views inside each module folder
+- Use `Database::getConnection()` and `includes/auth.php` helpers
+
 ## Running the Project Locally
 
 1. Install XAMPP (or similar) and start Apache.
@@ -97,8 +98,8 @@ See `doc/developer_guide.md` for how to:
 
 As modules are implemented and routing is added, you will navigate to URLs like:
 
-- `/customer/...`
-- `/admin/...`
-- `/sales/...`
-- `/manager/...`
+- `index.php?page=menu`
+- `index.php?page=admin/dashboard`
+- `index.php?page=sales/orders`
+- `index.php?page=manager/dashboard`
 

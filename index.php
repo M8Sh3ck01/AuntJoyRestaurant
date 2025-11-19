@@ -17,49 +17,52 @@ $page   = $_GET['page']   ?? 'home';
 $action = $_GET['action'] ?? '';
 
 switch ($page) {
-    // -------- Auth routes (to be implemented) --------
+    // -------- Auth module (shared for all roles) --------
     case 'login':
-        // TODO: require customer/controllers/AuthController.php and call login or show login form
-        echo 'TODO: login page';
+        require_once __DIR__ . '/auth/views/login.php';
+        break;
+
+    case 'login_submit':
+        require_once __DIR__ . '/auth/controllers/AuthController.php';
+        (new AuthController())->login();
         break;
 
     case 'logout':
-        // TODO: implement logout controller that clears session and redirects
-        echo 'TODO: logout';
+        require_once __DIR__ . '/auth/controllers/AuthController.php';
+        (new AuthController())->logout();
+        break;
+
+    case 'unauthorized':
+        require_once __DIR__ . '/auth/views/unauthorized.php';
         break;
 
     // -------- Admin module --------
     case 'admin/dashboard':
         requireRole(['admin']);
-        // TODO: require admin/views/dashboard.php (and later AdminController if needed)
-        echo 'TODO: admin dashboard';
+        require_once __DIR__ . '/admin/views/dashboard.php';
         break;
 
     // -------- Sales module --------
     case 'sales/orders':
         requireRole(['sales']);
-        // TODO: require sales/views/orders.php
-        echo 'TODO: sales orders';
+        require_once __DIR__ . '/sales/views/orders.php';
         break;
 
     // -------- Manager module --------
     case 'manager/dashboard':
         requireRole(['manager']);
-        // TODO: require manager/views/dashboard.php
-        echo 'TODO: manager dashboard';
+        require_once __DIR__ . '/manager/views/dashboard.php';
         break;
 
     // -------- Customer module --------
     case 'menu':
         // Public menu page (no login required)
-        // TODO: require customer/views/menu.php
-        echo 'TODO: customer menu';
+        require_once __DIR__ . '/customer/views/menu.php';
         break;
 
     case 'profile':
         requireLogin();
-        // TODO: require customer/views/profile.php
-        echo 'TODO: customer profile';
+        require_once __DIR__ . '/customer/views/profile.php';
         break;
 
     // -------- Fallback / home --------
